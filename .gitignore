@@ -1,0 +1,43 @@
+# Ignore build files
+/build/
+/bin/
+/obj/
+CMakeFiles/
+CMakeCache.txt
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Ignore IDE and editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.code-workspace
+
+# Ignore dependency files
+/vendor/
+third_party/
+deps/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+*.bak
+*.~*
+
+# Ignore generated documentation
+/docs/doxygen/
+
+# Ignore user-specific files
+*.user
+*.session
+
+# Ignore your specific data directory
+/data/
