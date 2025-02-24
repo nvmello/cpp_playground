@@ -130,8 +130,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/parallels/Projects/TradingSim/cmake-build-debug",
-		"source" : "/home/parallels/Projects/TradingSim"
+		"build" : "/home/parallels/Projects/CppPlayground/cmake-build-debug",
+		"source" : "/home/parallels/Projects/CppPlayground"
 	},
 	"version" : 
 	{
