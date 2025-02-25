@@ -40,4 +40,6 @@ deps/
 *.session
 
 # Ignore your specific data directory
-/data/
+/LockFreeRingBuf/data/
+cmake-build-debug/
+

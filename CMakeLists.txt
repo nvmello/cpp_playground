@@ -6,6 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(Cpp_Playground main.cpp
         LockFreeRingBuf/LockFreeRingBuffer.h
         LockFreeRingBuf/LockFreeRingBuffer.cpp
-        SieveOfEratosthenes/LRU_Cache.h
-        SieveOfEratosthenes/LRU_Cache.cpp
+        Cache/LRU/LRU_Cache.h
+        Cache/LRU/LRU_Cache.cpp
 )

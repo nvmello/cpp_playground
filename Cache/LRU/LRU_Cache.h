@@ -8,14 +8,12 @@
 using namespace std;
 
 struct Node{
-  int key;
-  int value;
+  size_t tag;
   Node* next;
   Node* prev;
-  Node(int k, int v)
+  Node(size_t t)
   {
-    key = k;
-    value = v;
+    tag = t;
     next = nullptr;
     prev = nullptr;
   }
@@ -24,8 +22,8 @@ struct Node{
 class LRU_Cache {
 
   private:
-    int capacity; //size of cache
-    unordered_map<int, Node *> cacheMap;
+    size_t cache_size; //size of cache
+    unordered_map<size_t, Node *> cacheMap;
     Node* head;
     Node* tail;
 
@@ -37,28 +35,21 @@ class LRU_Cache {
 
   public:
     //constructor
-    explicit LRU_Cache(int capacity = 2)
+    explicit LRU_Cache(size_t capacity = 2)
     {
-      this->capacity = capacity;
-      head = new Node(-1,-1);
-      tail = new Node(-1,-1);
+      this->cache_size = capacity;
+      head = new Node(-1);
+      tail = new Node(-1);
       head->next = tail;
       tail->prev = head;
     }
 
 
-    //function to put key-value pair into the cache
-    void put(int key, int value);
+    //function to put tag-value pair size_to the cache
+    void put(size_t tag);
 
     //function to get the value of a pair
-    int get(int key);
-
-
-
-
+    bool get(size_t tag);
 
 };
-
-
-
 #endif //LRU_CACHE_H

@@ -4,52 +4,52 @@
 
 #include "LRU_Cache.h"
 
-void LRU_Cache::put(int key, int value)
+void LRU_Cache::put(size_t tag)
 {
-    //if key is already in cache
-    if (cacheMap.find(key) != cacheMap.end())
+    //if tag is already in cache
+    if (cacheMap.find(tag) != cacheMap.end())
     {
-        Node* oldNode = cacheMap[key]; //grab a copy of it
+        Node* oldNode = cacheMap[tag]; //grab a copy of it
         removeNode(oldNode); //remove it from cache
-        delete oldNode; //delete it from memory
+        delete oldNode; //delete it from memor
     }
 
     //then add the new node to the cache regardless
-    Node* newNode = new Node(key, value);
-    cacheMap[key] = newNode; //log it in the cachemap
+    Node* newNode = new Node(tag);
+    cacheMap[tag] = newNode; //log it in the cachemap
     addNode(newNode);
 
-    //if key is not present and cache is full, LRU to remove least recently used and
-    //put key value after head
-    if (cacheMap.size() > capacity)
+    //if tag is not present and cache is full, LRU to remove least recently used and
+    //put tag value after head
+    if (cacheMap.size() > cache_size)
     {
         Node *delNode = tail->prev;
         //remove lowest priority node from cache
         removeNode(delNode);
 
         //remove lowest priority node from cachemap
-        cacheMap.erase(delNode->key);
+        cacheMap.erase(delNode->tag);
 
         //delete node
         delete delNode;
     }
 }
 
-int LRU_Cache::get(int key)
+bool LRU_Cache::get(size_t tag)
 {
-    //if key is present,
-    if (cacheMap.find(key) != cacheMap.end())
+    //if tag is present,
+    if (cacheMap.find(tag) != cacheMap.end())
     {
         // remove and re-add node to the cache
-        Node* oldNode = cacheMap[key];
+        Node* oldNode = cacheMap[tag];
         removeNode(oldNode);
         addNode(oldNode);
-        return oldNode->value;
+        return true;
     }
     else
     {
-        //else return -1
-        return -1;
+        //else return false
+        return false;
     }
 }
 
